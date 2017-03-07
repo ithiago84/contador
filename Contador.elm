@@ -1,6 +1,15 @@
 module Main exposing (..)
 
 import Html exposing (..)
+import Html.Events exposing (..)
+
+
+main =
+    Html.beginnerProgram { model = modelo, view = vista, update = atualizar }
+
+
+
+-- modelo
 
 
 modelo =
@@ -11,11 +20,11 @@ modelo =
 -- Vista
 
 
-main =
+vista modelo =
     div []
-        [ button [] [ text "-" ]
+        [ button [ onClick Decrementar ] [ text "-" ]
         , text (toString modelo)
-        , button [] [ text "+" ]
+        , button [ onClick Incrementar ] [ text "+" ]
         ]
 
 
@@ -31,4 +40,7 @@ type Mensagem
 atualizar mensagem modelo =
     case mensagem of
         Incrementar ->
+            modelo + 1
+
+        Decrementar ->
             modelo - 1
