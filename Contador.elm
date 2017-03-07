@@ -17,3 +17,18 @@ main =
         , text (toString modelo)
         , button [] [ text "+" ]
         ]
+
+
+
+-- Atualização
+
+
+type Mensagem
+    = Incrementar
+    | Decrementar
+
+
+atualizar mensagem modelo =
+    case mensagem of
+        Incrementar ->
+            modelo - 1
